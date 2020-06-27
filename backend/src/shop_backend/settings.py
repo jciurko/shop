@@ -31,6 +31,13 @@ ALLOWED_HOSTS = ['shop-281014.nw.r.appspot.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'allauth.socialaccount',
     'shop',
     'corsheaders',
     'django.contrib.admin',
@@ -161,3 +168,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, './build/static'),
 ]
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = False

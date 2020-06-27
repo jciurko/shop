@@ -3,13 +3,16 @@ import { Form, Input, Button, Spin, Checkbox } from "antd";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/auth";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-
+import "./Login.css";
 const NormalLoginForm = (props) => {
   const [form] = Form.useForm();
+  console.log(props);
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    console.log(props.isAuthenticated);
+    console.log(props.match);
     props.onAuth(values.username, values.password);
-    console.log(form);
   };
   let errorMessage = null;
   if (props.error) {
@@ -66,9 +69,7 @@ const NormalLoginForm = (props) => {
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <a className="login-form-forgot" href="">
-              Forgot password
-            </a>
+            <p className="login-form-forgot">Forgot password</p>
           </Form.Item>
 
           <Form.Item>
@@ -79,7 +80,7 @@ const NormalLoginForm = (props) => {
             >
               Log in
             </Button>
-            Or <a href="">register now!</a>
+            Or <a href="/signup"> Sign Up!</a>
           </Form.Item>
         </Form>
       )}
